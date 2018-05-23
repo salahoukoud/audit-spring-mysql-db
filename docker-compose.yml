@@ -1,0 +1,26 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  db:
+    image: mysql:8.0.3
+    container_name: mysqldb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: employees
+      MYSQL_USER: employee
+      MYSQL_PASSWORD: employee
+    volumes:
+#      - ./dump/employees.sql:/docker-entrypoint-initdb.d/1-employees.sql
+#      - ./dump/show_elapsed.sql:/docker-entrypoint-initdb/2-show_elapsed.sql
+      - ./dump:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+      
+  adminer:
+    image: adminer
+    container_name: adminerdb
+    restart: always
+    ports:
+      - 8080:8080
