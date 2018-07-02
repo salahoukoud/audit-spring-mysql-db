@@ -3,4 +3,14 @@ spring:
     url: jdbc:mysql://localhost:3308/employees
     username: employee
     password: employee
-
+    initialize: false
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    properties:
+#      org.hibernate.envers.store_data_at_delete: true
