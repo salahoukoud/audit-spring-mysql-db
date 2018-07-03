@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
+import com.saoah.envers.exceptions.MissingUsernameException;
+
 /**
  * class implement {@link AuditorAware} interface for providing the username at runtime
  */
@@ -17,20 +19,29 @@ public class ThreadLocalStorageAuditorAware implements AuditorAware<String> {
 
     @Override
     public String getCurrentAuditor() {
-        // for web app usage
-//        username = (String) RequestContextHolder.currentRequestAttributes()
-//                .getAttribute("username", RequestAttributes.SCOPE_REQUEST);
-
-        // Spring Security
-//        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        if (authentication != null && authentication.isAuthenticated())
-//            username = authentication.getName();
-
-        if (username.equals(null) || username.isEmpty()) {
-            username = systemUsername;
+        try {
+            // for web app usage
+            username = (String) RequestContextHolder.currentRequestAttributes()
+                    .getAttribute("username", RequestAttributes.SCOPE_REQUEST);
+        } catch (Exception e) {
+            // Spring Security
+            final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication != null && authentication.isAuthenticated())
+                username = authentication.getName();
+        } finally {
+            if (username == null || username.isEmpty()) {
+                username = systemUsername;
+            }
         }
+
+        if (username == null)
+            handleError();
 
 //        LOGGER.info(String.format("Current auditor is >>> %s", username));
         return username;
+    }
+
+    public void handleError() {
+        throw new MissingUsernameException("Request is missing a Username");
     }
 }

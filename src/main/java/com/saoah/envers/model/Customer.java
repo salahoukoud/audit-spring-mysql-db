@@ -23,14 +23,16 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(schema = "employees", name = "customer")
 @Audited
 @EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
+@ToString
 public class Customer {
 
     @Id
@@ -62,6 +64,11 @@ public class Customer {
 
     public Customer(Long id, String firstName, String lastName) {
         this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
