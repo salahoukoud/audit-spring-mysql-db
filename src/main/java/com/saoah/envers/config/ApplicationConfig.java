@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan
-@Import({PersistenceConfig.class})
+@Import({PersistenceConfig.class, AuditConfig.class})
 public class ApplicationConfig {
 
 }
