@@ -11,8 +11,8 @@ services:
       MYSQL_DATABASE: employees
       MYSQL_USER: employee
       MYSQL_PASSWORD: employee
-    volumes:
-      - ./dump:/docker-entrypoint-initdb.d
+#    volumes:
+#      - ./dump:/docker-entrypoint-initdb.d
     ports:
       - 3308:3306
       
