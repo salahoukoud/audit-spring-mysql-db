@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.saoah.envers.SampleApplication;
+import com.saoah.envers.AuditApplication;
 import com.saoah.envers.model.Customer;
 
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = SampleApplication.class)
+@SpringBootTest(classes = AuditApplication.class)
 public class ICustomerRepositoryIntegrationTest {
 
     private static Long idCustomer;
