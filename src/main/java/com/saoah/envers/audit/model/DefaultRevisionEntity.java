@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "revinfo")
 @RevisionEntity
 @NoArgsConstructor
-public class SampleRevisionEntity extends BaseRevisionEntity {
+public class DefaultRevisionEntity extends BaseRevisionEntity {
 
     public String toString() {
-        return "SampleRevisionEntity(revisionNumber = " + getRevisionNumber()
+        return "DefaultRevisionEntity(revisionNumber = " + getRevisionNumber()
                 + ", revisionDate = " + DateFormat.getDateTimeInstance().format(this.getRevisionDate()) + ")";
     }
 }
