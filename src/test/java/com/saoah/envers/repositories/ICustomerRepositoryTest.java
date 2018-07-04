@@ -2,8 +2,10 @@ package com.saoah.envers.repositories;
 
 import java.util.List;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -21,6 +23,7 @@ import static org.junit.Assert.assertNotNull;
 //@Transactional
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Commit // because @datajpatest Rolled back transaction
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ICustomerRepositoryTest {
 
     private static Long idCustomer;
@@ -32,14 +35,14 @@ public class ICustomerRepositoryTest {
     private ICustomerRepository customerRepository;
 
     @Test
-    public void test_findAll() {
+    public void test_3_findAll() {
         List<Customer> customers = customerRepository.findAll();
 
         assertNotNull("TOTO", customers);
     }
 
     @Test
-    public void test_save() {
+    public void test_1_save() {
         Customer customer = new Customer("Save", "Test");
         this.customerRepository.save(customer);
         assertNotNull(customer.getId());
@@ -48,10 +51,8 @@ public class ICustomerRepositoryTest {
     }
 
     @Test
-    public void test_findById() {
-        Customer customer = new Customer("TOTO", "TITI");
-        this.entityManager.persist(customer);
-        customer = customerRepository.findOne(idCustomer);
+    public void test_2_findById() {
+        Customer customer = customerRepository.findOne(idCustomer);
         assertNotNull(customer);
         assertEquals(customer.getFirstName(), "TOTO");
         assertEquals(customer.getLastName(), "TITI");
