@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "revinfo")
 @RevisionEntity
 @NoArgsConstructor
-public class SampleRevisionEntity extends CustomRevisionEntity {
+public class SampleRevisionEntity extends BaseRevisionEntity {
 
     public String toString() {
         return "SampleRevisionEntity(revisionNumber = " + getRevisionNumber()

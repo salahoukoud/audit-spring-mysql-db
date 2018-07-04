@@ -22,7 +22,7 @@ import lombok.Getter;
 @MappedSuperclass
 @Getter
 @EqualsAndHashCode
-public class CustomRevisionEntity implements Serializable {
+public class BaseRevisionEntity implements Serializable {
 
     @Id
     @RevisionNumber
@@ -41,7 +41,7 @@ public class CustomRevisionEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "CustomRevisionEntity(revisionNumber = " + this.revisionNumber
+        return "BaseRevisionEntity(revisionNumber = " + this.revisionNumber
                 + ", revisionDate = " + DateFormat.getDateTimeInstance().format(this.getRevisionDate())
                 + "[" + this.revisionTimestamp + "])";
     }

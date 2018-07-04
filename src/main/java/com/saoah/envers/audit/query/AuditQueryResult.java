@@ -2,7 +2,7 @@ package com.saoah.envers.audit.query;
 
 import org.hibernate.envers.RevisionType;
 
-import com.saoah.envers.audit.model.CustomRevisionEntity;
+import com.saoah.envers.audit.model.BaseRevisionEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +18,7 @@ import lombok.Getter;
 @Getter
 public class AuditQueryResult<T> {
     private final T entity;
-    private final CustomRevisionEntity revision;
+    private final BaseRevisionEntity revision;
     private final RevisionType type;
 
 }

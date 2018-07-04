@@ -2,7 +2,7 @@ package com.saoah.envers.audit.query;
 
 import org.hibernate.envers.RevisionType;
 
-import com.saoah.envers.audit.model.CustomRevisionEntity;
+import com.saoah.envers.audit.model.BaseRevisionEntity;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -29,9 +29,9 @@ public class AuditQueryResultUtils {
             entity = type.cast(item[0]);
 
         // Then get the Revision Entity
-        CustomRevisionEntity revision = null;
-        if (item[1] instanceof CustomRevisionEntity)
-            revision = (CustomRevisionEntity) item[1];
+        BaseRevisionEntity revision = null;
+        if (item[1] instanceof BaseRevisionEntity)
+            revision = (BaseRevisionEntity) item[1];
 
         // Then get the Revision Type
         RevisionType revisionType = null;
