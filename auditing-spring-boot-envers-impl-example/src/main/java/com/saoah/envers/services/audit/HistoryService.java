@@ -1,4 +1,4 @@
-package com.saoah.envers.audit.service;
+package com.saoah.envers.services.audit;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -48,8 +48,8 @@
         <dependency>
             <groupId>com.saoah</groupId>
             <artifactId>auditing-spring-boot-envers</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>test</scope>
+            <version>${project.version}</version>
+            <!--<scope>test</scope>-->
         </dependency>
     </dependencies>
 

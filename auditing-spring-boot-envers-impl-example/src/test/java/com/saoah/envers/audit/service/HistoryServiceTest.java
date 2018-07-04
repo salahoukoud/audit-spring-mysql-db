@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.saoah.envers.AuditApplication;
 import com.saoah.envers.dto.CustomerHistoryDto;
+import com.saoah.envers.services.audit.HistoryService;
 
 import static org.junit.Assert.assertNotNull;
 
