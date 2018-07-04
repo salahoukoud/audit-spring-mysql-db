@@ -1,4 +1,4 @@
-package com.saoah.envers.exceptions;
+package com.saoah.envers.audit.exceptions;
 
 public class MissingUsernameException extends RuntimeException {
     public MissingUsernameException() {

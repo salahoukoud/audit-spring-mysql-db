@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
-import com.saoah.envers.exceptions.MissingUsernameException;
+import com.saoah.envers.audit.exceptions.MissingUsernameException;
 
 /**
  * class implement {@link AuditorAware} interface for providing the username at runtime
