@@ -62,5 +62,6 @@
 
     <modules>
         <module>auditing-spring-boot-envers</module>
+        <module>auditing-spring-boot-envers-impl-example</module>
     </modules>
 </project>
