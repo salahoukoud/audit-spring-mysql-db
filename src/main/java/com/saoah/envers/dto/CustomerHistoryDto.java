@@ -1,14 +1,16 @@
 package com.saoah.envers.dto;
 
+import com.saoah.envers.audit.dto.HistoryDto;
 import com.saoah.envers.audit.dto.RevisionTypeDto;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Data
-public class CustomerHistoryDto {
-
-    private final CustomerDto customer;
-    private final Long revision;
-    private final RevisionTypeDto revisionType;
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+public class CustomerHistoryDto extends HistoryDto<CustomerDto> {
+    public CustomerHistoryDto(CustomerDto dto, Long revision, RevisionTypeDto revisionType) {
+        super(dto, revision, revisionType);
+    }
 
 }
