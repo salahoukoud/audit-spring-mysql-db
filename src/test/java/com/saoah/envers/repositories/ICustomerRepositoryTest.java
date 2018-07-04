@@ -17,6 +17,7 @@ import com.saoah.envers.model.Customer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -54,7 +55,12 @@ public class ICustomerRepositoryTest {
     public void test_2_findById() {
         Customer customer = customerRepository.findOne(idCustomer);
         assertNotNull(customer);
-        assertEquals(customer.getFirstName(), "TOTO");
-        assertEquals(customer.getLastName(), "TITI");
+        assertEquals(customer.getFirstName(), "Save");
+        assertEquals(customer.getLastName(), "Test");
+        assertNull(customer.getCreatedAt());
+        assertNull(customer.getCreatedBy());
+        assertNull(customer.getLastModifiedAt());
+        assertNull(customer.getLastModifiedBy());
+
     }
 }
