@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import com.saoah.envers.audit.ThreadLocalStorageAuditorAware;
+import com.saoah.envers.audit.auditor.DefaultAuditorAware;
 
 @Configuration
 @EnableJpaAuditing(auditorAwareRef = "auditorProvider")
@@ -13,6 +13,6 @@ public class AuditConfig {
 
     @Bean
     public AuditorAware<String> auditorProvider() {
-        return new ThreadLocalStorageAuditorAware();
+        return new DefaultAuditorAware();
     }
 }

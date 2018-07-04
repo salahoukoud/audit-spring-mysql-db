@@ -1,4 +1,4 @@
-package com.saoah.envers.audit;
+package com.saoah.envers.audit.auditor;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
@@ -13,7 +13,7 @@ import com.saoah.envers.exceptions.MissingUsernameException;
  * class implement {@link AuditorAware} interface for providing the username at runtime
  */
 @Component
-public class ThreadLocalStorageAuditorAware implements AuditorAware<String> {
+public class DefaultAuditorAware implements AuditorAware<String> {
 
     private String systemUsername = "system", username;
 
